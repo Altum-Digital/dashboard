@@ -1,0 +1,9 @@
+{
+  "name": "agency-server",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

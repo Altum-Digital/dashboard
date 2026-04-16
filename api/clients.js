@@ -1,64 +1,61 @@
-const { kv } = require("@vercel/kv");
+const GH_TOKEN  = process.env.GH_TOKEN;
+const GH_OWNER  = "creixelleugenio-a11y";
+const GH_REPO   = "web-agency-data";
+const GH_FILE   = "db.json";
+const GH_API    = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
 
-const SEED = [
-  {
-    id: "cretum",
-    name: "Cretum Partners",
-    industry: "Asset Management",
-    contactName: "Eugenio Creixell",
-    contactEmail: "ecreixell@cretumpartners.com",
-    contactWhatsApp: "",
-    status: "active",
-    package: "custom",
-    monthlyFee: 0,
-    startDate: "2026-01-01",
-    domain: "cretumpartners.com",
-    links: {
-      github:  "https://github.com/ANGEL-0G/Cretum-Website",
-      vercel:  "https://vercel.com/angel-0gs-projects/cretum-website",
-      website: "https://cretum-website.vercel.app",
+async function readDB() {
+  const res = await fetch(GH_API, {
+    headers: { Authorization: `Bearer ${GH_TOKEN}`, Accept: "application/vnd.github+json" },
+  });
+  if (!res.ok) throw new Error(`GitHub read failed: ${res.status}`);
+  const { content } = await res.json();
+  return JSON.parse(Buffer.from(content, "base64").toString("utf8"));
+}
+
+async function writeDB(clients, sha) {
+  const content = Buffer.from(JSON.stringify(clients, null, 2)).toString("base64");
+  const res = await fetch(GH_API, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${GH_TOKEN}`,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
     },
-    tasks: [
-      { id: "t1", title: "Revisar animaciones en todas las páginas", status: "done",        priority: "medium", createdAt: "2026-04-10", completedAt: "2026-04-15" },
-      { id: "t2", title: "Agregar sección de noticias / blog",        status: "todo",        priority: "low",    createdAt: "2026-04-15" },
-      { id: "t3", title: "Optimizar imágenes para mobile",            status: "todo",        priority: "medium", createdAt: "2026-04-15" },
-      { id: "t4", title: "SEO: meta tags y Open Graph",              status: "in_progress", priority: "high",   createdAt: "2026-04-12" },
-    ],
-    monthlyChecks: [
-      { id: "c1", label: "Deploy en producción actualizado",     done: true  },
-      { id: "c2", label: "Sin errores en consola (Vercel logs)", done: true  },
-      { id: "c3", label: "Formulario de contacto funciona",      done: true  },
-      { id: "c4", label: "Links del navbar correctos",           done: true  },
-      { id: "c5", label: "Versión móvil revisada",               done: false },
-      { id: "c6", label: "Backup del repo en GitHub",            done: true  },
-    ],
-    logs: [
-      { id: "l1", date: "2026-04-15", note: "Animaciones de scroll agregadas en todas las páginas." },
-      { id: "l2", date: "2026-04-14", note: "Navbar con blur semi-transparente implementado." },
-      { id: "l3", date: "2026-03-20", note: "Deploy inicial en Vercel completado." },
-    ],
-    notes: "Cliente interno (sin cobro). Stack: React + Vite + TypeScript + Tailwind. Deploy automático via Vercel.",
-  },
-];
+    body: JSON.stringify({ message: "update clients", content, sha }),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`GitHub write failed: ${res.status} — ${err}`);
+  }
+}
+
+async function getSHA() {
+  const res = await fetch(GH_API, {
+    headers: { Authorization: `Bearer ${GH_TOKEN}`, Accept: "application/vnd.github+json" },
+  });
+  const { sha } = await res.json();
+  return sha;
+}
 
 module.exports = async function handler(req, res) {
-  if (req.method === "GET") {
-    let clients = await kv.get("clients");
-    if (!clients) {
-      await kv.set("clients", SEED);
-      clients = SEED;
+  try {
+    if (req.method === "GET") {
+      const clients = await readDB();
+      return res.status(200).json(clients);
     }
-    return res.status(200).json(clients);
-  }
 
-  if (req.method === "PUT") {
-    const clients = req.body;
-    if (!Array.isArray(clients)) {
-      return res.status(400).json({ error: "Body must be an array" });
+    if (req.method === "PUT") {
+      const clients = req.body;
+      if (!Array.isArray(clients)) return res.status(400).json({ error: "Body must be an array" });
+      const sha = await getSHA();
+      await writeDB(clients, sha);
+      return res.status(200).json({ ok: true });
     }
-    await kv.set("clients", clients);
-    return res.status(200).json({ ok: true });
-  }
 
-  res.status(405).json({ error: "Method not allowed" });
+    res.status(405).json({ error: "Method not allowed" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 };

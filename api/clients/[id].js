@@ -1,7 +1,7 @@
 const GH_TOKEN = process.env.GH_TOKEN;
-const GH_API   = `https://api.github.com/repos/creixelleugenio-a11y/web-agency-data/contents/db.json`;
+const GH_API   = "https://api.github.com/repos/creixelleugenio-a11y/web-agency-data/contents/db.json";
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
   try {
     const r = await fetch(GH_API, {
@@ -15,4 +15,4 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-};
+}

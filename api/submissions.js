@@ -8,7 +8,6 @@ async function readDB() {
   if (!res.ok) throw new Error(`GitHub read failed: ${res.status}`);
   const { content, sha } = await res.json();
   const raw = JSON.parse(Buffer.from(content, "base64").toString("utf8"));
-  // Support both old format (array) and new format ({ clients, submissions })
   const clients     = Array.isArray(raw) ? raw : (raw.clients || []);
   const submissions = Array.isArray(raw) ? [] : (raw.submissions || []);
   return { clients, submissions, sha };
@@ -23,7 +22,7 @@ async function writeDB(db, sha) {
       Accept: "application/vnd.github+json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ message: "update db", content, sha }),
+    body: JSON.stringify({ message: "update submissions", content, sha }),
   });
   if (!res.ok) throw new Error(`GitHub write failed: ${res.status}`);
 }
@@ -31,14 +30,23 @@ async function writeDB(db, sha) {
 export default async function handler(req, res) {
   try {
     if (req.method === "GET") {
-      const { clients } = await readDB();
-      return res.status(200).json(clients);
+      const { submissions } = await readDB();
+      return res.status(200).json(submissions);
     }
-    if (req.method === "PUT") {
-      const clients = req.body;
-      if (!Array.isArray(clients)) return res.status(400).json({ error: "Body must be an array" });
-      const { submissions, sha } = await readDB();
-      await writeDB({ clients, submissions }, sha);
+    // DELETE by id: /api/submissions?id=xxx
+    if (req.method === "DELETE") {
+      const id = req.query?.id;
+      if (!id) return res.status(400).json({ error: "Missing id" });
+      const { clients, submissions, sha } = await readDB();
+      await writeDB({ clients, submissions: submissions.filter(s => s.id !== id) }, sha);
+      return res.status(200).json({ ok: true });
+    }
+    // PATCH to mark as reviewed
+    if (req.method === "PATCH") {
+      const id = req.query?.id;
+      if (!id) return res.status(400).json({ error: "Missing id" });
+      const { clients, submissions, sha } = await readDB();
+      await writeDB({ clients, submissions: submissions.map(s => s.id === id ? { ...s, reviewed: true } : s) }, sha);
       return res.status(200).json({ ok: true });
     }
     res.status(405).json({ error: "Method not allowed" });

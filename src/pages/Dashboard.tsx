@@ -66,6 +66,9 @@ export function Dashboard() {
               </svg>
             )}
           </button>
+          <Link to="/templates" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
+            Templates
+          </Link>
           <Link to="/paquetes" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
             Paquetes
           </Link>

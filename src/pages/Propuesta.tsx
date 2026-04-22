@@ -55,37 +55,40 @@ export function Propuesta() {
         {/* Packages */}
         <div className="space-y-5 mb-14">
 
-          {/* Express */}
+          {/* Presencia */}
           <PackageCard
-            name="Express"
-            price="$3,500"
-            timeline="24–48 horas"
+            name="Presencia"
+            price="$9,000"
+            timeline="5–7 dias"
             color="slate"
-            description="Sitio web de una pagina (landing page) ideal para negocios que necesitan presencia en linea rapida y profesional."
+            description="Sitio de una pagina (landing page) para negocios que necesitan presencia en linea profesional, legal y rapida."
             features={[
               "Diseno landing page (1 pagina)",
               "Secciones: inicio, servicios, contacto",
-              "Formulario de contacto",
-              "Version movil incluida",
+              "Formulario de contacto a WhatsApp",
+              "Stats, FAQ y garantia con numero",
+              "Legal completo (aviso + cookies)",
+              "Version movil y tablet",
               "Deploy en produccion (Vercel)",
               "Dominio de primer ano incluido",
               "1 ronda de revisiones",
             ]}
           />
 
-          {/* Negocio */}
+          {/* Crecimiento */}
           <PackageCard
-            name="Negocio"
-            price="$6,500"
-            timeline="3–5 dias"
+            name="Crecimiento"
+            price="$12,000"
+            timeline="10–14 dias"
             color="blue"
-            description="Sitio web de multiples paginas con identidad visual solida. Recomendado para negocios establecidos que buscan transmitir confianza."
-            featured
+            description="Hasta 3 paginas con marcas, seguros y Google Reviews. Para negocios establecidos que buscan transmitir confianza."
             features={[
-              "Hasta 5 paginas (inicio, nosotros, servicios, galeria, contacto)",
+              "Hasta 3 paginas con router",
               "Diseno con identidad de marca",
-              "Formulario de contacto avanzado",
-              "Integracion con redes sociales",
+              "Marcas atendidas + seguros",
+              "Google Reviews badge",
+              "Micro-interacciones premium",
+              "Sitemap + robots.txt",
               "Version movil y tablet",
               "Deploy en produccion (Vercel)",
               "Dominio de primer ano incluido",
@@ -94,26 +97,49 @@ export function Propuesta() {
             ]}
           />
 
-          {/* Pro */}
+          {/* Total */}
           <PackageCard
-            name="Pro"
-            price="$12,000"
-            timeline="5–7 dias"
+            name="Total"
+            price="$15,000"
+            timeline="20–30 dias"
             color="purple"
-            description="Sitio web completo con funcionalidades avanzadas. Para negocios que requieren una solucion digital robusta y a medida."
+            description="Hasta 5 paginas + 13 landings SEO por servicio y landing B2B. Para dominar el mercado local en Google."
+            featured
             features={[
-              "Paginas ilimitadas",
-              "Diseno 100% personalizado",
-              "Blog o seccion de noticias",
-              "Galeria / portafolio avanzado",
-              "Integraciones (WhatsApp, Maps, Analytics)",
-              "Panel de administracion basico",
-              "Optimizacion SEO completa",
+              "Hasta 5 paginas",
+              "Hasta 13 landings SEO por servicio",
+              "Landing B2B (flotillas / corporativo)",
+              "Marcas, seguros y Google Reviews",
+              "Stats animados + logos",
+              "Micro-interacciones premium",
+              "Sitemap de 20+ URLs",
               "Version movil y tablet",
               "Deploy en produccion (Vercel)",
               "Dominio de primer ano incluido",
               "Revisiones ilimitadas",
               "Soporte 60 dias post-entrega",
+            ]}
+          />
+
+          {/* Suprema */}
+          <PackageCard
+            name="Suprema"
+            price="$20,000"
+            timeline="A cotizar / 4–8 semanas"
+            color="indigo"
+            description="Proyecto 100% a la medida, sin plantilla. Paginas ilimitadas, diseno personalizado y desarrollo desde cero para tu marca."
+            features={[
+              "Paginas ilimitadas",
+              "Diseno 100% a la medida (sin template)",
+              "Landings ilimitadas por servicio",
+              "Landing B2B incluida",
+              "Stats y contenido custom",
+              "Integraciones a medida",
+              "Version movil y tablet",
+              "Deploy en produccion (Vercel)",
+              "Dominio de primer ano incluido",
+              "Revisiones ilimitadas",
+              "Soporte 90 dias post-entrega",
             ]}
           />
         </div>
@@ -146,27 +172,31 @@ export function Propuesta() {
         {/* Mensualidad */}
         <div className="bg-white/4 print:bg-gray-50 border border-white/8 print:border-gray-200 rounded-2xl p-6 mb-14">
           <h3 className="text-sm font-semibold text-white print:text-black uppercase tracking-wider mb-3">Mantenimiento mensual (opcional)</h3>
-          <p className="text-sm text-slate-300 print:text-slate-700 leading-relaxed mb-4">
+          <p className="text-sm text-slate-300 print:text-slate-700 leading-relaxed mb-5">
             Servicio mensual para mantener tu sitio actualizado, seguro y funcionando correctamente.
           </p>
-          <div className="grid grid-cols-3 gap-4">
-            {[
-              { plan: "Basico",   fee: "$399 MXN/mes",   items: ["Actualizaciones de contenido", "Monitoreo de errores", "Backup mensual", "Soporte WhatsApp"] },
-              { plan: "Estandar", fee: "$699 MXN/mes",   items: ["Todo lo anterior", "Hasta 3 cambios/mes", "Reporte mensual de visitas"] },
-              { plan: "Premium",  fee: "$999 MXN/mes",   items: ["Todo lo anterior", "Cambios ilimitados", "SEO mensual", "Soporte prioritario"] },
-            ].map(m => (
-              <div key={m.plan} className="bg-white/3 print:bg-white border border-white/8 print:border-gray-200 rounded-xl p-4">
-                <p className="text-xs font-semibold text-slate-400 print:text-slate-600 mb-1">{m.plan}</p>
-                <p className="text-base font-bold text-white print:text-black mb-3">{m.fee}</p>
-                <ul className="space-y-1">
-                  {m.items.map(i => (
-                    <li key={i} className="text-xs text-slate-400 print:text-slate-600 flex items-start gap-1.5">
-                      <span className="text-slate-600 print:text-slate-400 mt-0.5">—</span>{i}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="flex gap-6 items-center bg-white/3 print:bg-white border border-white/8 print:border-gray-200 rounded-xl p-5">
+            <div className="flex-shrink-0 border-r border-white/10 print:border-gray-200 pr-6">
+              <p className="text-xs font-semibold text-slate-400 print:text-slate-600 mb-1">Plan único</p>
+              <p className="text-3xl font-bold text-white print:text-black mb-1">$1,500 <span className="text-sm font-normal text-slate-400 print:text-slate-600">MXN/mes</span></p>
+              <p className="text-xs text-slate-400 print:text-slate-600 leading-relaxed max-w-[200px]">Incluye dominio (.com / .com.mx) a partir del segundo año.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 flex-1">
+              {[
+                "Cambios ilimitados de contenido",
+                "Monitoreo de errores 24/7",
+                "Backup mensual automático",
+                "Optimización para Google",
+                "Reporte mensual de visitas",
+                "Hosting + SSL incluidos",
+                "Soporte prioritario por WhatsApp",
+                "Atención en menos de 24 hrs",
+              ].map(i => (
+                <div key={i} className="text-xs text-slate-300 print:text-slate-700 flex items-start gap-1.5">
+                  <span className="text-orange-400 print:text-orange-600 mt-0.5">✓</span>{i}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -189,12 +219,13 @@ function PackageCard({
   name, price, timeline, description, features, color, featured,
 }: {
   name: string; price: string; timeline: string; description: string;
-  features: string[]; color: "slate" | "blue" | "purple"; featured?: boolean;
+  features: string[]; color: "slate" | "blue" | "purple" | "indigo"; featured?: boolean;
 }) {
   const accent = {
     slate:  { badge: "bg-slate-500/15 text-slate-400 print:bg-slate-100 print:text-slate-600", border: "border-white/8 print:border-gray-200", dot: "bg-slate-500" },
     blue:   { badge: "bg-blue-500/15 text-blue-400 print:bg-blue-100 print:text-blue-600", border: "border-blue-500/30 print:border-blue-300", dot: "bg-blue-400" },
     purple: { badge: "bg-purple-500/15 text-purple-400 print:bg-purple-100 print:text-purple-600", border: "border-white/8 print:border-gray-200", dot: "bg-purple-400" },
+    indigo: { badge: "bg-indigo-500/15 text-indigo-400 print:bg-indigo-100 print:text-indigo-600", border: "border-white/8 print:border-gray-200", dot: "bg-indigo-400" },
   }[color];
 
   return (

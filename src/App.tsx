@@ -7,6 +7,7 @@ import { Onboarding } from "@/pages/Onboarding";
 import { Submissions } from "@/pages/Submissions";
 import { Propuesta } from "@/pages/Propuesta";
 import { Paquetes } from "@/pages/Paquetes";
+import { Templates } from "@/pages/Templates";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/new" element={<NewClient />} />
               <Route path="/submissions" element={<Submissions />} />
               <Route path="/paquetes" element={<Paquetes />} />
+              <Route path="/templates" element={<Templates />} />
             </Routes>
           </AppProvider>
         } />

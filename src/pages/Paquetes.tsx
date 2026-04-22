@@ -2,97 +2,99 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 type Cell = true | false | string;
-type Row = [string, Cell, Cell, Cell];
+type Row = [string, Cell, Cell, Cell, Cell];
 type Group = { title: string; rows: Row[] };
 
 const matrixGroups: Group[] = [
   {
     title: "Calidad base",
     rows: [
-      ["Diseño profesional + responsive (móvil / tablet)", true, true, true],
-      ["Animaciones base (fade, scroll, counter, hover)", true, true, true],
-      ["Schema.org JSON-LD (LocalBusiness)", true, true, true],
-      ["Meta tags + Open Graph", true, true, true],
-      ["Core Web Vitals optimizados", true, true, true],
+      ["Diseño profesional + responsive (móvil / tablet)", true, true, true, true],
+      ["Animaciones base (fade, scroll, counter, hover)", true, true, true, true],
+      ["Schema.org JSON-LD (LocalBusiness)", true, true, true, true],
+      ["Meta tags + Open Graph", true, true, true, true],
+      ["Core Web Vitals optimizados", true, true, true, true],
     ],
   },
   {
     title: "Legal (obligatorio LFPDPPP)",
     rows: [
-      ["Aviso de privacidad + Términos y condiciones", true, true, true],
-      ["Banner de cookies", true, true, true],
+      ["Aviso de privacidad + Términos y condiciones", true, true, true, true],
+      ["Banner de cookies", true, true, true, true],
     ],
   },
   {
     title: "Estructura del sitio",
     rows: [
-      ["Páginas", "1 (one-pager)", "5 páginas", "Ilimitadas"],
-      ["Landings individuales por servicio (SEO)", false, false, "Hasta 13"],
-      ["Landing B2B (flotillas / corporativo)", false, false, true],
-      ["Sitemap + robots.txt", false, true, true],
+      ["Páginas", "1 (one-pager)", "Hasta 3", "Hasta 5", "Ilimitadas"],
+      ["Landings individuales por servicio (SEO)", false, false, "Hasta 13", "Ilimitadas"],
+      ["Landing B2B (flotillas / corporativo)", false, false, true, true],
+      ["Sitemap + robots.txt", false, true, true, true],
     ],
   },
   {
     title: "Contenido y confianza",
     rows: [
-      ["FAQ accordion", true, true, true],
-      ["Garantía con número específico", true, true, true],
-      ["Stats animados", "3 métricas", "4–5 + timeline", "4–5 + timeline + logos"],
-      ["Marcas atendidas (marquee de logos)", false, true, true],
-      ["Seguros aceptados", false, true, true],
-      ["Google Reviews badge estático", false, true, false],
-      ["Google Places reviews dinámicas", false, false, true],
-      ["Blog", false, "Estructura + 1 post", "3–5 posts SEO"],
+      ["FAQ accordion", true, true, true, true],
+      ["Garantía con número específico", true, true, true, true],
+      ["Stats animados", "3 métricas", "4–5", "4–5 + logos", "Custom"],
+      ["Marcas atendidas (marquee de logos)", false, true, true, true],
+      ["Seguros / alianzas", false, true, true, true],
+      ["Google Reviews badge", false, true, true, true],
     ],
   },
   {
     title: "Funcionalidad",
     rows: [
-      ["Formulario → WhatsApp", true, true, true],
-      ["Sistema de agendar online + thank-you page", false, false, true],
-      ["Panel CMS para editar contenido", false, false, true],
-      ["Bot de WhatsApp básico", false, false, true],
+      ["Formulario → WhatsApp", true, true, true, true],
     ],
   },
   {
-    title: "Diseño premium (factor wow)",
+    title: "Diseño",
     rows: [
-      ["Micro-interacciones premium", false, true, true],
-      ["Lottie animations (hero / proceso)", false, false, true],
-      ["3D Spline hero / tour virtual", false, false, true],
-      ["Scroll storytelling GSAP", false, false, true],
+      ["Micro-interacciones premium", false, true, true, true],
+      ["Diseño 100% a la medida", false, false, false, true],
     ],
   },
 ];
 
 const packages = [
   {
-    key: "express",
+    key: "presencia",
     name: "Presencia",
-    price: "$3,500",
-    timeline: "24–48 horas",
-    tag: "Express",
+    price: "$9,000",
+    timeline: "5–7 días",
+    tag: "One-pager",
     accent: "orange",
-    description: "Presencia digital profesional, legal y rápida. Para negocios que necesitan aparecer bien en Google ya.",
+    description: "Una página lista para recibir clientes. Ideal si nunca has tenido sitio web y necesitas aparecer bien en Google.",
   },
   {
     key: "crecimiento",
     name: "Crecimiento",
-    price: "$6,500",
-    timeline: "3–5 días",
+    price: "$12,000",
+    timeline: "10–14 días",
     tag: "Negocio",
     accent: "teal",
-    description: "Todo lo de Presencia + más contenido, marcas, seguros y reseñas. Para posicionarte sobre la competencia.",
-    featured: true,
+    description: "Hasta 3 páginas con marcas, seguros y Google Reviews. Para posicionarte sobre la competencia con imagen profesional.",
   },
   {
     key: "total",
     name: "Total",
-    price: "$12,000",
-    timeline: "5–7 días",
+    price: "$15,000",
+    timeline: "20–30 días",
     tag: "Pro",
     accent: "lime",
-    description: "Todo lo de Crecimiento + agendar online, bot WhatsApp, blog SEO y diseño 3D. Para dominar el mercado local.",
+    description: "Hasta 5 páginas + 13 landings SEO por servicio y landing B2B. Para dominar el mercado local por búsqueda.",
+    featured: true,
+  },
+  {
+    key: "suprema",
+    name: "Suprema",
+    price: "$20,000",
+    timeline: "A cotizar",
+    tag: "A la medida",
+    accent: "indigo",
+    description: "Proyecto 100% personalizado, páginas ilimitadas y diseño a la medida. Para negocios que necesitan algo único.",
   },
 ];
 
@@ -109,6 +111,7 @@ function accentBg(accent: string) {
     orange: "bg-orange-500",
     teal:   "bg-teal-500",
     lime:   "bg-lime-600",
+    indigo: "bg-indigo-600",
   }[accent] ?? "bg-gray-500";
 }
 
@@ -117,6 +120,7 @@ function accentText(accent: string) {
     orange: "text-orange-600",
     teal:   "text-teal-600",
     lime:   "text-lime-700",
+    indigo: "text-indigo-700",
   }[accent] ?? "text-gray-700";
 }
 
@@ -125,6 +129,7 @@ function accentBorder(accent: string) {
     orange: "border-orange-200",
     teal:   "border-teal-200",
     lime:   "border-lime-200",
+    indigo: "border-indigo-200",
   }[accent] ?? "border-gray-200";
 }
 
@@ -133,6 +138,7 @@ function accentHeaderBg(accent: string) {
     orange: "bg-orange-50",
     teal:   "bg-teal-50",
     lime:   "bg-lime-50",
+    indigo: "bg-indigo-50",
   }[accent] ?? "bg-gray-50";
 }
 
@@ -161,9 +167,9 @@ export function Paquetes() {
         </div>
       </header>
 
-      <div className="px-8 py-8 max-w-6xl mx-auto">
+      <div className="px-8 py-8 max-w-7xl mx-auto">
         {/* Package summary cards */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-4 gap-4 mb-8">
           {packages.map(p => (
             <div
               key={p.key}
@@ -193,7 +199,7 @@ export function Paquetes() {
         <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200">
             <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Comparación detallada</h2>
-            <p className="text-xs text-gray-500 mt-0.5">Principio: calidad base y legal en todos los tiers. Diferenciadores: alcance, funcionalidad y factor wow.</p>
+            <p className="text-xs text-gray-500 mt-0.5">Principio: calidad base y legal en todos los tiers. Diferenciadores: alcance, contenido y personalización.</p>
           </div>
           <table className="w-full text-sm">
             <thead>
@@ -218,7 +224,7 @@ export function Paquetes() {
               {matrixGroups.map(group => (
                 <Fragment key={group.title}>
                   <tr className="bg-gray-50/70">
-                    <td colSpan={4} className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-500 border-t border-gray-200">
+                    <td colSpan={5} className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-500 border-t border-gray-200">
                       {group.title}
                     </td>
                   </tr>
@@ -228,6 +234,7 @@ export function Paquetes() {
                       <td className="text-center px-4 py-2.5"><Cell value={row[1]} accent="orange" /></td>
                       <td className="text-center px-4 py-2.5"><Cell value={row[2]} accent="teal" /></td>
                       <td className="text-center px-4 py-2.5"><Cell value={row[3]} accent="lime" /></td>
+                      <td className="text-center px-4 py-2.5"><Cell value={row[4]} accent="indigo" /></td>
                     </tr>
                   ))}
                 </Fragment>
@@ -237,7 +244,7 @@ export function Paquetes() {
         </div>
 
         {/* Upsell logic */}
-        <div className="mt-8 grid grid-cols-2 gap-4">
+        <div className="mt-8 grid grid-cols-3 gap-4">
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-50 text-orange-600">Presencia</span>
@@ -246,7 +253,7 @@ export function Paquetes() {
               <span className="text-xs text-gray-500 ml-auto">+$3,000</span>
             </div>
             <p className="text-xs text-gray-600 leading-relaxed">
-              "Ya tienes sitio, pero ¿quieres que genere más confianza? Agregamos marcas atendidas, seguros, Google Reviews y 5 páginas con más contenido para posicionarte."
+              "¿Quieres que tu sitio genere más confianza? Agregamos marcas atendidas, seguros, Google Reviews y hasta 3 páginas con más contenido para posicionarte."
             </p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
@@ -254,10 +261,21 @@ export function Paquetes() {
               <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-teal-50 text-teal-600">Crecimiento</span>
               <span className="text-gray-400">→</span>
               <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-lime-50 text-lime-700">Total</span>
-              <span className="text-xs text-gray-500 ml-auto">+$5,500</span>
+              <span className="text-xs text-gray-500 ml-auto">+$3,000</span>
             </div>
             <p className="text-xs text-gray-600 leading-relaxed">
-              "¿Quieres que trabaje por ti mientras duermes? Sistema de agendar automático, bot de WhatsApp, blog SEO que atrae clientes de Google, y diseño 3D que la competencia no tiene."
+              "¿Quieres aparecer en Google por cada servicio que ofreces? Agregamos hasta 13 landings SEO por servicio, landing B2B y 2 páginas más para dominar tu mercado local."
+            </p>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-lime-50 text-lime-700">Total</span>
+              <span className="text-gray-400">→</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700">Suprema</span>
+              <span className="text-xs text-gray-500 ml-auto">+$5,000</span>
+            </div>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              "¿Quieres un sitio único que nadie más tenga? Diseño 100% a la medida, páginas ilimitadas y desarrollo personalizado. Sin plantilla: todo desde cero para tu marca."
             </p>
           </div>
         </div>

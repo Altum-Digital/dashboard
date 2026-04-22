@@ -4,7 +4,7 @@ import { useApp } from "@/context/AppContext";
 import type { Client, ClientStatus, Package, ClientPhase, TemplateUsed, Submission } from "@/data/types";
 import { uid } from "@/data/store";
 
-const PKG_MAP: Record<string, Package> = { Express: "basic", Negocio: "standard", Pro: "premium" };
+const PKG_MAP: Record<string, Package> = { Presencia: "basic", Crecimiento: "standard", Total: "premium", Suprema: "premium" };
 
 export function NewClient() {
   const navigate = useNavigate();
@@ -157,9 +157,10 @@ export function NewClient() {
                 <label className={labelCls}>Template</label>
                 <select value={form.templateUsed} onChange={set("templateUsed")} className={inputCls}>
                   <option value="">— Sin definir —</option>
-                  <option value="express">Express ($3,500)</option>
-                  <option value="negocio">Negocio ($6,500)</option>
-                  <option value="pro">Pro ($12,000)</option>
+                  <option value="express">Presencia ($9,000)</option>
+                  <option value="negocio">Crecimiento ($12,000)</option>
+                  <option value="pro">Total ($15,000)</option>
+                  <option value="suprema">Suprema ($20,000)</option>
                   <option value="custom">Custom</option>
                 </select>
               </div>

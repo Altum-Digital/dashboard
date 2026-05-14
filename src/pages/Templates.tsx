@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 type Status = "ready" | "wip" | "roadmap";
 
 type Template = {
-  tier: "Presencia" | "Total";
+  tier: "Presencia" | "Total" | "Personalizado";
   price: string;
   timeline: string;
   status: Status;
@@ -54,6 +54,18 @@ const industries: Industry[] = [
           "Sitemap de 20 URLs",
         ],
       },
+      {
+        tier: "Personalizado",
+        price: "$20,000+",
+        timeline: "A cotizar",
+        status: "roadmap",
+        highlights: [
+          "Diseño 100% a la medida",
+          "Páginas ilimitadas",
+          "Integraciones custom",
+          "Animaciones GSAP avanzadas",
+        ],
+      },
     ],
   },
   {
@@ -78,6 +90,18 @@ const industries: Industry[] = [
         localUrl: "http://localhost:5205",
         path: "templates/restaurante-pro",
         highlights: ["Reservas online con calendario", "Menú CMS editable", "Landing catering"],
+      },
+      {
+        tier: "Personalizado",
+        price: "$20,000+",
+        timeline: "A cotizar",
+        status: "roadmap",
+        highlights: [
+          "Diseño 100% a la medida",
+          "Páginas ilimitadas",
+          "Integraciones custom",
+          "Animaciones GSAP avanzadas",
+        ],
       },
     ],
   },
@@ -104,6 +128,18 @@ const industries: Industry[] = [
         path: "templates/salon-pro",
         highlights: ["Booking por estilista", "Membresías", "Tienda de productos", "GSAP + Lottie"],
       },
+      {
+        tier: "Personalizado",
+        price: "$20,000+",
+        timeline: "A cotizar",
+        status: "roadmap",
+        highlights: [
+          "Diseño 100% a la medida",
+          "Páginas ilimitadas",
+          "Integraciones custom",
+          "Animaciones GSAP avanzadas",
+        ],
+      },
     ],
   },
   {
@@ -128,6 +164,18 @@ const industries: Industry[] = [
         localUrl: "http://localhost:5202",
         path: "templates/barberia-pro",
         highlights: ["Booking por barbero", "Paquetes + membresías", "Tienda productos barba"],
+      },
+      {
+        tier: "Personalizado",
+        price: "$20,000+",
+        timeline: "A cotizar",
+        status: "roadmap",
+        highlights: [
+          "Diseño 100% a la medida",
+          "Páginas ilimitadas",
+          "Integraciones custom",
+          "Animaciones GSAP avanzadas",
+        ],
       },
     ],
   },
@@ -154,6 +202,18 @@ const industries: Industry[] = [
         path: "templates/spa-pro",
         highlights: ["Booking por terapeuta", "Paquetes + gift cards", "Tienda wellness"],
       },
+      {
+        tier: "Personalizado",
+        price: "$20,000+",
+        timeline: "A cotizar",
+        status: "roadmap",
+        highlights: [
+          "Diseño 100% a la medida",
+          "Páginas ilimitadas",
+          "Integraciones custom",
+          "Animaciones GSAP avanzadas",
+        ],
+      },
     ],
   },
 ];
@@ -167,6 +227,7 @@ const statusStyle: Record<Status, { bg: string; text: string; label: string }> =
 const tierAccent: Record<Template["tier"], string> = {
   Presencia: "border-orange-200 bg-orange-50/40",
   Total: "border-lime-200 bg-lime-50/40",
+  Personalizado: "border-indigo-200 bg-indigo-50/40",
 };
 
 export function Templates() {
@@ -179,7 +240,7 @@ export function Templates() {
         <div>
           <h1 className="text-xl font-bold text-gray-900 tracking-tight">Templates</h1>
           <p className="text-sm text-gray-500 mt-0.5">
-            {readyCount} de {totalCount} templates listos · 5 industrias · 2 tiers
+            {readyCount} de {totalCount} templates listos · 5 industrias · 3 tiers
           </p>
         </div>
         <div className="flex items-center gap-2">

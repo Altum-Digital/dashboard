@@ -540,9 +540,9 @@ export function ClientDetail() {
                   <div>
                     <label className="block text-xs text-gray-400 mb-1">Plantilla usada</label>
                     <select value={editForm.templateUsed} onChange={setField("templateUsed")} className={inputCls}>
-                      <option value="">—</option><option value="express">Presencia</option>
-                      <option value="negocio">Crecimiento</option><option value="pro">Total</option>
-                      <option value="suprema">Suprema</option>
+                      <option value="">—</option><option value="basico">Presencia</option>
+                      <option value="pro">Total</option>
+                      <option value="personalizado">Personalizado</option>
                       <option value="custom">Custom</option>
                     </select>
                   </div>

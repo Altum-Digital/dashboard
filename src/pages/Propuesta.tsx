@@ -75,28 +75,6 @@ export function Propuesta() {
             ]}
           />
 
-          {/* Crecimiento */}
-          <PackageCard
-            name="Crecimiento"
-            price="$12,000"
-            timeline="10–14 dias"
-            color="blue"
-            description="Hasta 3 paginas con marcas, seguros y Google Reviews. Para negocios establecidos que buscan transmitir confianza."
-            features={[
-              "Hasta 3 paginas con router",
-              "Diseno con identidad de marca",
-              "Marcas atendidas + seguros",
-              "Google Reviews badge",
-              "Micro-interacciones premium",
-              "Sitemap + robots.txt",
-              "Version movil y tablet",
-              "Deploy en produccion (Vercel)",
-              "Dominio de primer ano incluido",
-              "2 rondas de revisiones",
-              "Soporte 30 dias post-entrega",
-            ]}
-          />
-
           {/* Total */}
           <PackageCard
             name="Total"
@@ -121,10 +99,10 @@ export function Propuesta() {
             ]}
           />
 
-          {/* Suprema */}
+          {/* Personalizado */}
           <PackageCard
-            name="Suprema"
-            price="$20,000"
+            name="Personalizado"
+            price="$20,000+"
             timeline="A cotizar / 4–8 semanas"
             color="indigo"
             description="Proyecto 100% a la medida, sin plantilla. Paginas ilimitadas, diseno personalizado y desarrollo desde cero para tu marca."

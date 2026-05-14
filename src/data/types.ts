@@ -3,7 +3,7 @@ export type TaskStatus     = "todo" | "in_progress" | "done";
 export type TaskPriority   = "low" | "medium" | "high";
 export type Package        = "basic" | "standard" | "premium" | "custom";
 export type ClientPhase    = "prospeccion" | "recoleccion" | "propuesta" | "desarrollo" | "revision" | "entrega" | "mantenimiento";
-export type TemplateUsed   = "express" | "negocio" | "pro" | "suprema" | "custom";
+export type TemplateUsed   = "basico" | "pro" | "personalizado" | "custom";
 
 export interface Task {
   id: string;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 type Status = "ready" | "wip" | "roadmap";
 
 type Template = {
-  tier: "Presencia" | "Crecimiento" | "Total";
+  tier: "Presencia" | "Total";
   price: string;
   timeline: string;
   status: Status;
@@ -31,7 +31,7 @@ const industries: Industry[] = [
         timeline: "5-7 días",
         status: "ready",
         localUrl: "http://localhost:5212",
-        path: "templates/taller-express",
+        path: "templates/taller-basico",
         highlights: [
           "One-pager con animaciones base",
           "FAQ + Stats + Schema.org",
@@ -40,26 +40,12 @@ const industries: Industry[] = [
         ],
       },
       {
-        tier: "Crecimiento",
-        price: "$12,000",
-        timeline: "10-14 días",
-        status: "ready",
-        localUrl: "http://localhost:5213",
-        path: "templates/taller-negocio",
-        highlights: [
-          "Hasta 3 páginas con router",
-          "Marcas + seguros + timeline",
-          "Google Reviews badge",
-          "Sitemap + robots",
-        ],
-      },
-      {
         tier: "Total",
         price: "$15,000",
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5214",
-        path: "templates/taller-total",
+        path: "templates/taller-pro",
         highlights: [
           "13 landings SEO por servicio",
           "Landing B2B flotillas",
@@ -81,17 +67,8 @@ const industries: Industry[] = [
         timeline: "5-7 días",
         status: "ready",
         localUrl: "http://localhost:5203",
-        path: "templates/restaurante-express",
+        path: "templates/restaurante-basico",
         highlights: ["Menú + reservas + ubicación", "Galería de platillos"],
-      },
-      {
-        tier: "Crecimiento",
-        price: "$12,000",
-        timeline: "10-14 días",
-        status: "ready",
-        localUrl: "http://localhost:5204",
-        path: "templates/restaurante-negocio",
-        highlights: ["Menú por categorías", "Carta PDF descargable", "Reseñas de Google"],
       },
       {
         tier: "Total",
@@ -99,7 +76,7 @@ const industries: Industry[] = [
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5205",
-        path: "templates/restaurante-total",
+        path: "templates/restaurante-pro",
         highlights: ["Reservas online con calendario", "Menú CMS editable", "Landing catering"],
       },
     ],
@@ -115,17 +92,8 @@ const industries: Industry[] = [
         timeline: "5-7 días",
         status: "ready",
         localUrl: "http://localhost:5206",
-        path: "templates/salon-express",
+        path: "templates/salon-basico",
         highlights: ["Servicios + precios", "Galería de trabajos", "WhatsApp + Fresha hook", "Schema BeautySalon"],
-      },
-      {
-        tier: "Crecimiento",
-        price: "$12,000",
-        timeline: "10-14 días",
-        status: "ready",
-        localUrl: "http://localhost:5207",
-        path: "templates/salon-negocio",
-        highlights: ["Catálogo de servicios", "Equipo con bios", "Instagram feed", "Reseñas Google"],
       },
       {
         tier: "Total",
@@ -133,7 +101,7 @@ const industries: Industry[] = [
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5208",
-        path: "templates/salon-total",
+        path: "templates/salon-pro",
         highlights: ["Booking por estilista", "Membresías", "Tienda de productos", "GSAP + Lottie"],
       },
     ],
@@ -149,17 +117,8 @@ const industries: Industry[] = [
         timeline: "5-7 días",
         status: "ready",
         localUrl: "http://localhost:5200",
-        path: "templates/barberia-express",
+        path: "templates/barberia-basico",
         highlights: ["Servicios + cortes", "Galería antes/después", "Booking Booksy hook", "Schema HairSalon"],
-      },
-      {
-        tier: "Crecimiento",
-        price: "$12,000",
-        timeline: "10-14 días",
-        status: "ready",
-        localUrl: "http://localhost:5201",
-        path: "templates/barberia-negocio",
-        highlights: ["Multi-barbero con bios", "Catálogo de cortes", "Reseñas Google"],
       },
       {
         tier: "Total",
@@ -167,7 +126,7 @@ const industries: Industry[] = [
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5202",
-        path: "templates/barberia-total",
+        path: "templates/barberia-pro",
         highlights: ["Booking por barbero", "Paquetes + membresías", "Tienda productos barba"],
       },
     ],
@@ -183,17 +142,8 @@ const industries: Industry[] = [
         timeline: "5-7 días",
         status: "ready",
         localUrl: "http://localhost:5209",
-        path: "templates/spa-express",
+        path: "templates/spa-basico",
         highlights: ["Rituales + precios", "Galería ambientes", "Booking Mindbody hook", "Schema DaySpa"],
-      },
-      {
-        tier: "Crecimiento",
-        price: "$12,000",
-        timeline: "10-14 días",
-        status: "ready",
-        localUrl: "http://localhost:5210",
-        path: "templates/spa-negocio",
-        highlights: ["Catálogo rituales", "Terapeutas con bios", "Reseñas Google"],
       },
       {
         tier: "Total",
@@ -201,7 +151,7 @@ const industries: Industry[] = [
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5211",
-        path: "templates/spa-total",
+        path: "templates/spa-pro",
         highlights: ["Booking por terapeuta", "Paquetes + gift cards", "Tienda wellness"],
       },
     ],
@@ -216,7 +166,6 @@ const statusStyle: Record<Status, { bg: string; text: string; label: string }> =
 
 const tierAccent: Record<Template["tier"], string> = {
   Presencia: "border-orange-200 bg-orange-50/40",
-  Crecimiento: "border-teal-200 bg-teal-50/40",
   Total: "border-lime-200 bg-lime-50/40",
 };
 
@@ -230,7 +179,7 @@ export function Templates() {
         <div>
           <h1 className="text-xl font-bold text-gray-900 tracking-tight">Templates</h1>
           <p className="text-sm text-gray-500 mt-0.5">
-            {readyCount} de {totalCount} templates listos · 5 industrias · 3 tiers
+            {readyCount} de {totalCount} templates listos · 5 industrias · 2 tiers
           </p>
         </div>
         <div className="flex items-center gap-2">

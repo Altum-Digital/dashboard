@@ -2,58 +2,58 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 type Cell = true | false | string;
-type Row = [string, Cell, Cell, Cell, Cell];
+type Row = [string, Cell, Cell, Cell];
 type Group = { title: string; rows: Row[] };
 
 const matrixGroups: Group[] = [
   {
     title: "Calidad base",
     rows: [
-      ["Diseño profesional + responsive (móvil / tablet)", true, true, true, true],
-      ["Animaciones base (fade, scroll, counter, hover)", true, true, true, true],
-      ["Schema.org JSON-LD (LocalBusiness)", true, true, true, true],
-      ["Meta tags + Open Graph", true, true, true, true],
-      ["Core Web Vitals optimizados", true, true, true, true],
+      ["Diseño profesional + responsive (móvil / tablet)", true, true, true],
+      ["Animaciones base (fade, scroll, counter, hover)", true, true, true],
+      ["Schema.org JSON-LD (LocalBusiness)", true, true, true],
+      ["Meta tags + Open Graph", true, true, true],
+      ["Core Web Vitals optimizados", true, true, true],
     ],
   },
   {
     title: "Legal (obligatorio LFPDPPP)",
     rows: [
-      ["Aviso de privacidad + Términos y condiciones", true, true, true, true],
-      ["Banner de cookies", true, true, true, true],
+      ["Aviso de privacidad + Términos y condiciones", true, true, true],
+      ["Banner de cookies", true, true, true],
     ],
   },
   {
     title: "Estructura del sitio",
     rows: [
-      ["Páginas", "1 (one-pager)", "Hasta 3", "Hasta 5", "Ilimitadas"],
-      ["Landings individuales por servicio (SEO)", false, false, "Hasta 13", "Ilimitadas"],
-      ["Landing B2B (flotillas / corporativo)", false, false, true, true],
-      ["Sitemap + robots.txt", false, true, true, true],
+      ["Páginas", "1 (one-pager)", "Hasta 5", "Ilimitadas"],
+      ["Landings individuales por servicio (SEO)", false, "Hasta 13", "Ilimitadas"],
+      ["Landing B2B (flotillas / corporativo)", false, true, true],
+      ["Sitemap + robots.txt", false, true, true],
     ],
   },
   {
     title: "Contenido y confianza",
     rows: [
-      ["FAQ accordion", true, true, true, true],
-      ["Garantía con número específico", true, true, true, true],
-      ["Stats animados", "3 métricas", "4–5", "4–5 + logos", "Custom"],
-      ["Marcas atendidas (marquee de logos)", false, true, true, true],
-      ["Seguros / alianzas", false, true, true, true],
-      ["Google Reviews badge", false, true, true, true],
+      ["FAQ accordion", true, true, true],
+      ["Garantía con número específico", true, true, true],
+      ["Stats animados", "3 métricas", "4–5 + logos", "Custom"],
+      ["Marcas atendidas (marquee de logos)", false, true, true],
+      ["Seguros / alianzas", false, true, true],
+      ["Google Reviews badge", false, true, true],
     ],
   },
   {
     title: "Funcionalidad",
     rows: [
-      ["Formulario → WhatsApp", true, true, true, true],
+      ["Formulario → WhatsApp", true, true, true],
     ],
   },
   {
     title: "Diseño",
     rows: [
-      ["Micro-interacciones premium", false, true, true, true],
-      ["Diseño 100% a la medida", false, false, false, true],
+      ["Micro-interacciones premium", false, true, true],
+      ["Diseño 100% a la medida", false, false, true],
     ],
   },
 ];
@@ -69,15 +69,6 @@ const packages = [
     description: "Una página lista para recibir clientes. Ideal si nunca has tenido sitio web y necesitas aparecer bien en Google.",
   },
   {
-    key: "crecimiento",
-    name: "Crecimiento",
-    price: "$12,000",
-    timeline: "10–14 días",
-    tag: "Negocio",
-    accent: "teal",
-    description: "Hasta 3 páginas con marcas, seguros y Google Reviews. Para posicionarte sobre la competencia con imagen profesional.",
-  },
-  {
     key: "total",
     name: "Total",
     price: "$15,000",
@@ -88,9 +79,9 @@ const packages = [
     featured: true,
   },
   {
-    key: "suprema",
-    name: "Suprema",
-    price: "$20,000",
+    key: "personalizado",
+    name: "Personalizado",
+    price: "$20,000+",
     timeline: "A cotizar",
     tag: "A la medida",
     accent: "indigo",
@@ -169,7 +160,7 @@ export function Paquetes() {
 
       <div className="px-8 py-8 max-w-7xl mx-auto">
         {/* Package summary cards */}
-        <div className="grid grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-4 mb-8">
           {packages.map(p => (
             <div
               key={p.key}
@@ -224,7 +215,7 @@ export function Paquetes() {
               {matrixGroups.map(group => (
                 <Fragment key={group.title}>
                   <tr className="bg-gray-50/70">
-                    <td colSpan={5} className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-500 border-t border-gray-200">
+                    <td colSpan={4} className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-500 border-t border-gray-200">
                       {group.title}
                     </td>
                   </tr>
@@ -232,9 +223,8 @@ export function Paquetes() {
                     <tr key={`${group.title}-${i}`} className="border-t border-gray-100 hover:bg-gray-50/50">
                       <td className="px-6 py-2.5 text-gray-700">{row[0]}</td>
                       <td className="text-center px-4 py-2.5"><Cell value={row[1]} accent="orange" /></td>
-                      <td className="text-center px-4 py-2.5"><Cell value={row[2]} accent="teal" /></td>
-                      <td className="text-center px-4 py-2.5"><Cell value={row[3]} accent="lime" /></td>
-                      <td className="text-center px-4 py-2.5"><Cell value={row[4]} accent="indigo" /></td>
+                      <td className="text-center px-4 py-2.5"><Cell value={row[2]} accent="lime" /></td>
+                      <td className="text-center px-4 py-2.5"><Cell value={row[3]} accent="indigo" /></td>
                     </tr>
                   ))}
                 </Fragment>
@@ -244,34 +234,23 @@ export function Paquetes() {
         </div>
 
         {/* Upsell logic */}
-        <div className="mt-8 grid grid-cols-3 gap-4">
+        <div className="mt-8 grid grid-cols-2 gap-4">
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-50 text-orange-600">Presencia</span>
               <span className="text-gray-400">→</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-teal-50 text-teal-600">Crecimiento</span>
-              <span className="text-xs text-gray-500 ml-auto">+$3,000</span>
-            </div>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              "¿Quieres que tu sitio genere más confianza? Agregamos marcas atendidas, seguros, Google Reviews y hasta 3 páginas con más contenido para posicionarte."
-            </p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-teal-50 text-teal-600">Crecimiento</span>
-              <span className="text-gray-400">→</span>
               <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-lime-50 text-lime-700">Total</span>
-              <span className="text-xs text-gray-500 ml-auto">+$3,000</span>
+              <span className="text-xs text-gray-500 ml-auto">+$6,000</span>
             </div>
             <p className="text-xs text-gray-600 leading-relaxed">
-              "¿Quieres aparecer en Google por cada servicio que ofreces? Agregamos hasta 13 landings SEO por servicio, landing B2B y 2 páginas más para dominar tu mercado local."
+              "¿Quieres dominar Google en tu zona? Pasamos de one-pager a hasta 5 páginas + 13 landings SEO por servicio, landing B2B y marcas atendidas."
             </p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-lime-50 text-lime-700">Total</span>
               <span className="text-gray-400">→</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700">Suprema</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700">Personalizado</span>
               <span className="text-xs text-gray-500 ml-auto">+$5,000</span>
             </div>
             <p className="text-xs text-gray-600 leading-relaxed">

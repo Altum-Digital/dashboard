@@ -262,12 +262,11 @@ export function Onboarding() {
           {/* Paquete */}
           <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 space-y-4">
             <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Paquete de interés</h2>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-3 gap-3">
               {([
-                { value: "Presencia",   price: "$9,000",  desc: "1 página · 5–7 días" },
-                { value: "Crecimiento", price: "$12,000", desc: "Hasta 3 páginas · 10–14 días" },
-                { value: "Total",       price: "$15,000", desc: "Hasta 5 pg + landings · 20–30 días" },
-                { value: "Suprema",     price: "$20,000", desc: "A la medida · A cotizar" },
+                { value: "Presencia",     price: "$9,000",   desc: "1 página · 5–7 días" },
+                { value: "Total",         price: "$15,000",  desc: "Hasta 5 pg + landings · 20–30 días" },
+                { value: "Personalizado", price: "$20,000+", desc: "A la medida · A cotizar" },
               ] as const).map(p => (
                 <button key={p.value} type="button"
                   onClick={() => setForm(f => ({ ...f, package: p.value }))}

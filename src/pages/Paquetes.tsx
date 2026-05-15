@@ -142,18 +142,13 @@ export function Paquetes() {
           <p className="text-sm text-gray-500 mt-0.5">Qué incluye cada paquete — referencia interna</p>
         </div>
         <div className="flex items-center gap-2">
-          <button
-            onClick={async () => {
-              const res = await fetch('/propuesta_altum_digital.pdf');
-              const blob = await res.blob();
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url; a.download = 'propuesta_altum_digital.pdf';
-              a.click(); URL.revokeObjectURL(url);
-            }}
+          <a
+            href="/propuesta_altum_digital.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
           >
-            Descargar PDF
+            Ver PDF
           </a>
           <Link
             to="/"

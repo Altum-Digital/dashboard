@@ -72,19 +72,9 @@ export function Dashboard() {
           <Link to="/paquetes" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
             Paquetes
           </Link>
-          <button
-            onClick={async () => {
-              const res = await fetch('/propuesta_altum_digital.pdf');
-              const blob = await res.blob();
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url; a.download = 'propuesta_altum_digital.pdf';
-              a.click(); URL.revokeObjectURL(url);
-            }}
-            className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
-          >
+          <a href="/propuesta_altum_digital.pdf" target="_blank" rel="noopener noreferrer" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
             Propuesta PDF
-          </button>
+          </a>
           <Link to="/submissions" className="relative px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
             Submissions
             {pendingCount > 0 && (

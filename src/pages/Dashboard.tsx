@@ -72,7 +72,7 @@ export function Dashboard() {
           <Link to="/paquetes" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
             Paquetes
           </Link>
-          <a href="/propuesta_altum_digital.pdf" target="_blank" rel="noopener noreferrer" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
+          <a href="/propuesta_altum_digital.pdf" download="propuesta_altum_digital.pdf" className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">
             Propuesta PDF
           </a>
           <Link to="/submissions" className="relative px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors">

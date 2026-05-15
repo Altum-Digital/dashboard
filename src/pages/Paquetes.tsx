@@ -144,11 +144,10 @@ export function Paquetes() {
         <div className="flex items-center gap-2">
           <a
             href="/propuesta_altum_digital.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download="propuesta_altum_digital.pdf"
             className="px-3 py-2 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
           >
-            Ver PDF
+            Descargar PDF
           </a>
           <Link
             to="/"

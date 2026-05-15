@@ -265,7 +265,7 @@ export function Onboarding() {
             <div className="grid grid-cols-3 gap-3">
               {([
                 { value: "Presencia",     price: "$9,000",   desc: "1 página · 5–7 días" },
-                { value: "Total",         price: "$15,000",  desc: "Hasta 5 pg + landings · 20–30 días" },
+                { value: "Total",         price: "$12,000",  desc: "Hasta 5 pg + landings · 20–30 días" },
                 { value: "Personalizado", price: "$20,000+", desc: "A la medida · A cotizar" },
               ] as const).map(p => (
                 <button key={p.value} type="button"

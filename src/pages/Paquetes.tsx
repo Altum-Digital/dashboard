@@ -71,7 +71,7 @@ const packages = [
   {
     key: "total",
     name: "Total",
-    price: "$15,000",
+    price: "$12,000",
     timeline: "20–30 días",
     tag: "Pro",
     accent: "lime",

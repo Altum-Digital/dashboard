@@ -158,7 +158,7 @@ export function NewClient() {
                 <select value={form.templateUsed} onChange={set("templateUsed")} className={inputCls}>
                   <option value="">— Sin definir —</option>
                   <option value="basico">Presencia ($9,000)</option>
-                  <option value="pro">Total ($15,000)</option>
+                  <option value="pro">Total ($12,000)</option>
                   <option value="personalizado">Personalizado ($20,000+)</option>
                   <option value="custom">Custom</option>
                 </select>

@@ -41,7 +41,7 @@ const industries: Industry[] = [
       },
       {
         tier: "Total",
-        price: "$15,000",
+        price: "$12,000",
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5214",
@@ -84,7 +84,7 @@ const industries: Industry[] = [
       },
       {
         tier: "Total",
-        price: "$15,000",
+        price: "$12,000",
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5205",
@@ -121,7 +121,7 @@ const industries: Industry[] = [
       },
       {
         tier: "Total",
-        price: "$15,000",
+        price: "$12,000",
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5208",
@@ -158,7 +158,7 @@ const industries: Industry[] = [
       },
       {
         tier: "Total",
-        price: "$15,000",
+        price: "$12,000",
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5202",
@@ -195,7 +195,7 @@ const industries: Industry[] = [
       },
       {
         tier: "Total",
-        price: "$15,000",
+        price: "$12,000",
         timeline: "20-30 días",
         status: "ready",
         localUrl: "http://localhost:5211",

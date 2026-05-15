@@ -78,7 +78,7 @@ export function Propuesta() {
           {/* Total */}
           <PackageCard
             name="Total"
-            price="$15,000"
+            price="$12,000"
             timeline="20–30 dias"
             color="purple"
             description="Hasta 5 paginas + 13 landings SEO por servicio y landing B2B. Para dominar el mercado local en Google."

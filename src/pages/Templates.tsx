@@ -216,6 +216,53 @@ const industries: Industry[] = [
       },
     ],
   },
+  {
+    slug: "decoracion",
+    name: "Decoraciones",
+    icon: "🛋",
+    templates: [
+      {
+        tier: "Presencia",
+        price: "$9,000",
+        timeline: "5-7 días",
+        status: "ready",
+        localUrl: "http://localhost:5215",
+        path: "templates/decoracion-presencia",
+        highlights: [
+          "Servicios configurables (tapicería, cortinas, muebles, diseño)",
+          "Galería de proyectos",
+          "Cotizador → WhatsApp",
+          "Schema HomeAndConstructionBusiness",
+        ],
+      },
+      {
+        tier: "Total",
+        price: "$12,000",
+        timeline: "20-30 días",
+        status: "ready",
+        localUrl: "http://localhost:5216",
+        path: "templates/decoracion-total",
+        highlights: [
+          "Portafolio filtrable por categoría",
+          "Antes/después slider",
+          "Showroom de materiales",
+          "Blog CMS + cotizador avanzado",
+        ],
+      },
+      {
+        tier: "Personalizado",
+        price: "$20,000+",
+        timeline: "A cotizar",
+        status: "roadmap",
+        highlights: [
+          "Diseño 100% a la medida",
+          "Páginas ilimitadas",
+          "Integraciones custom",
+          "Animaciones GSAP avanzadas",
+        ],
+      },
+    ],
+  },
 ];
 
 const statusStyle: Record<Status, { bg: string; text: string; label: string }> = {
